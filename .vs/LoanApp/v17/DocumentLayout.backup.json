@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\commands\\create\\loanapplications\\submitloanapplicationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\commands\\create\\loanapplications\\submitloanapplicationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\commands\\create\\loanapplications\\createloanapplicationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\commands\\create\\loanapplications\\createloanapplicationcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\commands\\create\\loanapplications\\createloanapplicationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\commands\\create\\loanapplications\\createloanapplicationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\controllers\\loanapplicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\controllers\\loanapplicationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\models\\loanapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\models\\loanapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\commands\\create\\loanapplications\\submitloanapplicationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\commands\\create\\loanapplications\\submitloanapplicationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\dtos\\submitloanapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\dtos\\submitloanapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\dtos\\updateapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\dtos\\updateapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\dtos\\updateloanproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\dtos\\updateloanproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\commands\\update\\loanapplications\\updatedraftloanapplicationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\commands\\update\\loanapplications\\updatedraftloanapplicationcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|c:\\users\\swathi.odugu\\source\\repos\\loanapp\\loanapp\\features\\dtos\\loanapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECF4DA5B-C45D-49A1-9EA4-219DBF37249A}|LoanApp\\LoanApp.csproj|solutionrelative:loanapp\\features\\dtos\\loanapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\appsettings.json",
+              "RelativeDocumentMoniker": "LoanApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\appsettings.json",
+              "RelativeToolTip": "LoanApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-09T10:07:39.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoanApplication.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Models\\LoanApplication.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Models\\LoanApplication.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Models\\LoanApplication.cs",
+              "RelativeToolTip": "LoanApp\\Models\\LoanApplication.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwA8AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T08:54:44.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SubmitLoanApplicationCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommandHandler.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommandHandler.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommandHandler.cs*",
+              "RelativeToolTip": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommandHandler.cs*",
+              "ViewState": "AgIAAAoAAAAAAAAAAADwvxkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:35:44.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SubmitLoanApplicationDto.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\SubmitLoanApplicationDto.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\DTOS\\SubmitLoanApplicationDto.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\SubmitLoanApplicationDto.cs",
+              "RelativeToolTip": "LoanApp\\Features\\DTOS\\SubmitLoanApplicationDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAD7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:35:09.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SubmitLoanApplicationCommand.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommand.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommand.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommand.cs",
+              "RelativeToolTip": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\SubmitLoanApplicationCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:35:03.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UpdateApplicationDto.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\UpdateApplicationDto.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\DTOS\\UpdateApplicationDto.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\UpdateApplicationDto.cs",
+              "RelativeToolTip": "LoanApp\\Features\\DTOS\\UpdateApplicationDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:34:46.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateLoanProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\UpdateLoanProductDto.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\DTOS\\UpdateLoanProductDto.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\UpdateLoanProductDto.cs",
+              "RelativeToolTip": "LoanApp\\Features\\DTOS\\UpdateLoanProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:34:36.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UpdateDraftLoanApplicationCommand.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Update\\LoanApplications\\UpdateDraftLoanApplicationCommand.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\Commands\\Update\\LoanApplications\\UpdateDraftLoanApplicationCommand.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Update\\LoanApplications\\UpdateDraftLoanApplicationCommand.cs",
+              "RelativeToolTip": "LoanApp\\Features\\Commands\\Update\\LoanApplications\\UpdateDraftLoanApplicationCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:34:30.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoanApplicationDto.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\LoanApplicationDto.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\DTOS\\LoanApplicationDto.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\DTOS\\LoanApplicationDto.cs",
+              "RelativeToolTip": "LoanApp\\Features\\DTOS\\LoanApplicationDto.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAswCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:25:56.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateLoanApplicationCommand.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommand.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommand.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommand.cs",
+              "RelativeToolTip": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:25:40.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoanApplicationsController.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Controllers\\LoanApplicationsController.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Controllers\\LoanApplicationsController.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Controllers\\LoanApplicationsController.cs",
+              "RelativeToolTip": "LoanApp\\Controllers\\LoanApplicationsController.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAqwEYAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:18:51.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateLoanApplicationCommandHandler.cs",
+              "DocumentMoniker": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommandHandler.cs",
+              "RelativeDocumentMoniker": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommandHandler.cs",
+              "ToolTip": "C:\\Users\\swathi.odugu\\source\\repos\\LoanApp\\LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommandHandler.cs",
+              "RelativeToolTip": "LoanApp\\Features\\Commands\\Create\\LoanApplications\\CreateLoanApplicationCommandHandler.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAYwBkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:10:36.712Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

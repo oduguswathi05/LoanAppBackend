@@ -1,4 +1,5 @@
 using LoanApp.Data;
+using LoanApp.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -10,11 +11,13 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(
     options=>options.UseSqlServer(builder.Configuration.GetConnectionString("LoanConStr"))
     );
+//mediator
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
+//jwtAuthentication
 builder.Services.AddAuthentication().AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
 {
     ValidateIssuer = true,
@@ -29,6 +32,8 @@ builder.Services.AddAuthentication().AddJwtBearer(options => options.TokenValida
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+//Adding jwt to swagger
 builder.Services.AddSwaggerGen(setup =>
 {
     // Include 'SecurityScheme' to use JWT Authentication
@@ -57,6 +62,9 @@ builder.Services.AddSwaggerGen(setup =>
 
 });
 
+//regesering jwtservice
+builder.Services.AddScoped<JwtTokenService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -65,7 +73,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+//cors policy
 app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
 

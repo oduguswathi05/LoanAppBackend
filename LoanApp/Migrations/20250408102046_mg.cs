@@ -23,9 +23,7 @@ namespace LoanApp.Migrations
                     MaxLoanAmount = table.Column<double>(type: "float", nullable: false),
                     MinLoanTerm = table.Column<int>(type: "int", nullable: false),
                     MaxLoanTerm = table.Column<int>(type: "int", nullable: false),
-                    EligibilityCriteria = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false),
-                    LoanType = table.Column<int>(type: "int", nullable: false)
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,7 +47,9 @@ namespace LoanApp.Migrations
                     InterestRate = table.Column<double>(type: "float", nullable: false),
                     PropertyAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PropertyValue = table.Column<double>(type: "float", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ReviewComment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReviewedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,8 +62,8 @@ namespace LoanApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),

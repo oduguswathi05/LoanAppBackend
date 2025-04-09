@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoanApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250402054124_mg")]
+    [Migration("20250408102046_mg")]
     partial class mg
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace LoanApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("LoanApp.Models.Loan", b =>
+            modelBuilder.Entity("LoanApp.Models.LoanApplication", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -70,6 +70,12 @@ namespace LoanApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ReviewComment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ReviewedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -86,18 +92,11 @@ namespace LoanApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("EligibilityCriteria")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("InterestRate")
                         .HasColumnType("float");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
-
-                    b.Property<int>("LoanType")
-                        .HasColumnType("int");
 
                     b.Property<double>("MaxLoanAmount")
                         .HasColumnType("float");
@@ -134,13 +133,11 @@ namespace LoanApp.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()

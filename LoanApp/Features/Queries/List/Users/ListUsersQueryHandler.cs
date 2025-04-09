@@ -3,7 +3,7 @@ using LoanApp.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace LoanApp.Features.Queries.List
+namespace LoanApp.Features.Queries.List.Users
 {
     public class ListUsersQueryHandler : IRequestHandler<ListUsersQuery, List<User>>
     {
@@ -19,6 +19,6 @@ namespace LoanApp.Features.Queries.List
             return users;
         }
 
-       
+
     }
 }

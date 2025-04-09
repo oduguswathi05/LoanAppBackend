@@ -1,12 +1,164 @@
 [
   {
-    "ContainingType": "LoanApp.Controllers.UserController",
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
     "Method": "Get",
-    "RelativePath": "api/User",
+    "RelativePath": "api/LoanApplications",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
+    "Method": "Post",
+    "RelativePath": "api/LoanApplications/Draft",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loanApplication",
+        "Type": "LoanApp.Features.DTOS.LoanApplicationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
+    "Method": "Update",
+    "RelativePath": "api/LoanApplications/Draft/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "LoanApp.Features.DTOS.UpdateApplicationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
+    "Method": "UpdateLoanStatus",
+    "RelativePath": "api/LoanApplications/Review/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "decision",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "comment",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
+    "Method": "SubmitLoan",
+    "RelativePath": "api/LoanApplications/Submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "LoanApp.Features.DTOS.SubmitLoanApplicationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
+    "Method": "GetLoanApplicationsByUserId",
+    "RelativePath": "api/LoanApplications/UserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanProductsController",
+    "Method": "Add",
+    "RelativePath": "api/LoanProducts",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loanProduct",
+        "Type": "LoanApp.Features.DTOS.LoanProductDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanProductsController",
+    "Method": "Get",
+    "RelativePath": "api/LoanProducts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanProductsController",
+    "Method": "Delete",
+    "RelativePath": "api/LoanProducts/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanProductsController",
+    "Method": "Update",
+    "RelativePath": "api/LoanProducts/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "LoanApp.Features.DTOS.UpdateLoanProductDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -26,16 +178,42 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "LoanApp.Controllers.UserAuthController",
-    "Method": "Register",
-    "RelativePath": "api/UserAuth/register",
+    "ContainingType": "LoanApp.Controllers.UsersController",
+    "Method": "Get",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.UsersController",
+    "Method": "RegisterC",
+    "RelativePath": "api/Users/register/customer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "user",
-        "Type": "LoanApp.Models.User",
+        "Type": "LoanApp.Features.DTOS.UserRegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.UsersController",
+    "Method": "RegisterO",
+    "RelativePath": "api/Users/register/loanOfficer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "LoanApp.Features.DTOS.UserRegisterDto",
         "IsRequired": true
       }
     ],

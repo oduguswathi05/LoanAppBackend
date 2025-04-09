@@ -18,9 +18,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Commands\Delete\" />
-    <Folder Include="Features\Commands\Update\" />
-  </ItemGroup>
-
 </Project>

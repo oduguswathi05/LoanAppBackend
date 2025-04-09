@@ -5,11 +5,268 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/User": {
+    "/api/LoanApplications/Draft": {
+      "post": {
+        "tags": [
+          "LoanApplications"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanApplicationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanApplicationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanApplicationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanApplications": {
       "get": {
         "tags": [
-          "User"
+          "LoanApplications"
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanApplications/Draft/{id}": {
+      "put": {
+        "tags": [
+          "LoanApplications"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateApplicationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateApplicationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateApplicationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanApplications/Submit": {
+      "post": {
+        "tags": [
+          "LoanApplications"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitLoanApplicationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitLoanApplicationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitLoanApplicationDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanApplications/UserId": {
+      "get": {
+        "tags": [
+          "LoanApplications"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanApplications/Review/{id}": {
+      "put": {
+        "tags": [
+          "LoanApplications"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "decision",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ReviewDecision"
+            }
+          },
+          {
+            "name": "comment",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanProducts": {
+      "post": {
+        "tags": [
+          "LoanProducts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanProductDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanProductDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanProductDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "LoanProducts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanProducts/{id}": {
+      "delete": {
+        "tags": [
+          "LoanProducts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LoanProducts"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLoanProductDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLoanProductDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLoanProductDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -48,26 +305,69 @@
         }
       }
     },
-    "/api/UserAuth/register": {
+    "/api/Users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/register/customer": {
       "post": {
         "tags": [
-          "UserAuth"
+          "Users"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UserRegisterDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UserRegisterDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UserRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/register/loanOfficer": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegisterDto"
               }
             }
           }
@@ -121,21 +421,269 @@
   },
   "components": {
     "schemas": {
-      "User": {
+      "LoanApplicationDto": {
+        "required": [
+          "annualIncome",
+          "creditScore",
+          "employmentStatus",
+          "interestRate",
+          "loanAmount",
+          "loanTerm",
+          "propertyAddress",
+          "propertyValue",
+          "residenceType"
+        ],
+        "type": "object",
+        "properties": {
+          "loanAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "employmentStatus": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "creditScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "residenceType": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "loanTerm": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "interestRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "propertyAddress": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "propertyValue": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoanProductDto": {
+        "required": [
+          "interestRate",
+          "maxLoanAmount",
+          "maxLoanTerm",
+          "minLoanAmount",
+          "minLoanTerm",
+          "productName"
+        ],
+        "type": "object",
+        "properties": {
+          "productName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "interestRate": {
+            "type": "number",
+            "format": "double"
+          },
+          "minLoanAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxLoanAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "minLoanTerm": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maxLoanTerm": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReviewDecision": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SubmitLoanApplicationDto": {
+        "type": "object",
+        "properties": {
+          "loanId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "loanAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "employmentStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditScore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "residenceType": {
+            "type": "string",
+            "nullable": true
+          },
+          "loanTerm": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "interestRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "propertyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateApplicationDto": {
+        "type": "object",
+        "properties": {
+          "loanAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "annualIncome": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "employmentStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "creditScore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "residenceType": {
+            "type": "string",
+            "nullable": true
+          },
+          "loanTerm": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "interestRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "propertyAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "propertyValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateLoanProductDto": {
+        "type": "object",
+        "properties": {
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "interestRate": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "minLoanAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxLoanAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "minLoanTerm": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxLoanTerm": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserLoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordHash": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRegisterDto": {
         "required": [
           "email",
           "firstName",
           "lastName",
           "passwordHash",
-          "phoneNumber",
-          "role"
+          "phoneNumber"
         ],
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
           "firstName": {
             "maxLength": 50,
             "minLength": 0,
@@ -155,32 +703,10 @@
             "minLength": 6,
             "type": "string"
           },
-          "confirmPassword": {
-            "type": "string",
-            "nullable": true
-          },
           "phoneNumber": {
             "minLength": 1,
             "pattern": "^\\d{10}$",
             "type": "string"
-          },
-          "role": {
-            "minLength": 1,
-            "type": "string"
-          }
-        },
-        "additionalProperties": false
-      },
-      "UserLoginDto": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

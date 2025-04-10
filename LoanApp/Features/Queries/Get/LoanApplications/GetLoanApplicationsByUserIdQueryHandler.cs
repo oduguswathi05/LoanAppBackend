@@ -15,7 +15,7 @@ namespace LoanApp.Features.Queries.Get.LoanApplications
         }
         public async Task<List<LoanApplication>> Handle(GetLoanApplicationsByUserIdQuery request, CancellationToken cancellationToken)
         {
-            return await _context.Loans.Where(l => l.UserId == request.userId).ToListAsync(cancellationToken);
+            return await _context.LoanApplications.Where(l => l.UserId == request.userId).ToListAsync(cancellationToken);
         }
     }
 }

@@ -12,6 +12,31 @@ namespace LoanApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "LoanApplications",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    LoanAmount = table.Column<double>(type: "float", nullable: false),
+                    AnnualIncome = table.Column<double>(type: "float", nullable: false),
+                    EmploymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreditScore = table.Column<int>(type: "int", nullable: false),
+                    ResidenceType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LoanTerm = table.Column<int>(type: "int", nullable: false),
+                    LoanStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ApplicationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PropertyAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PropertyValue = table.Column<double>(type: "float", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ReviewComment = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ReviewedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LoanApplications", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "LoanProducts",
                 columns: table => new
                 {
@@ -28,32 +53,6 @@ namespace LoanApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LoanProducts", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Loans",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LoanAmount = table.Column<double>(type: "float", nullable: false),
-                    AnnualIncome = table.Column<double>(type: "float", nullable: false),
-                    EmploymentStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreditScore = table.Column<int>(type: "int", nullable: false),
-                    ResidenceType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LoanTerm = table.Column<int>(type: "int", nullable: false),
-                    LoanStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApplicationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    InterestRate = table.Column<double>(type: "float", nullable: false),
-                    PropertyAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropertyValue = table.Column<double>(type: "float", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    ReviewComment = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ReviewedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Loans", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,10 +78,10 @@ namespace LoanApp.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "LoanProducts");
+                name: "LoanApplications");
 
             migrationBuilder.DropTable(
-                name: "Loans");
+                name: "LoanProducts");
 
             migrationBuilder.DropTable(
                 name: "Users");

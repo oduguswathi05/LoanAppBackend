@@ -15,7 +15,7 @@ namespace LoanApp.Features.Queries.List.LoanApplications
         }
         public async Task<List<LoanApplication>> Handle(ListLoanApplicationsQuery request, CancellationToken cancellationToken)
         {
-            var loanApplications = await _context.Loans.Where(x => x.LoanStatus != "Draft").ToListAsync(cancellationToken);
+            var loanApplications = await _context.LoanApplications.Where(x => x.LoanStatus != "Draft").ToListAsync(cancellationToken);
             return loanApplications;
         }
     }

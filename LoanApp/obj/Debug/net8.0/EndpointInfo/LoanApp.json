@@ -426,7 +426,6 @@
           "annualIncome",
           "creditScore",
           "employmentStatus",
-          "interestRate",
           "loanAmount",
           "loanTerm",
           "propertyAddress",
@@ -458,10 +457,6 @@
           "loanTerm": {
             "type": "integer",
             "format": "int32"
-          },
-          "interestRate": {
-            "type": "number",
-            "format": "double"
           },
           "propertyAddress": {
             "minLength": 1,
@@ -523,7 +518,7 @@
       "SubmitLoanApplicationDto": {
         "type": "object",
         "properties": {
-          "loanId": {
+          "id": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -554,11 +549,6 @@
           "loanTerm": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "interestRate": {
-            "type": "number",
-            "format": "double",
             "nullable": true
           },
           "propertyAddress": {
@@ -606,11 +596,6 @@
           "loanTerm": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "interestRate": {
-            "type": "number",
-            "format": "double",
             "nullable": true
           },
           "propertyAddress": {

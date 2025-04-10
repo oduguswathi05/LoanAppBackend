@@ -13,7 +13,7 @@ namespace LoanApp.Features.Commands.Update.LoanApplications
         }
         public async Task Handle(ReviewLoanApplicationCommand request, CancellationToken cancellationToken)
         {
-            var existLoanApplication = await _context.Loans.FindAsync(request.Id);
+            var existLoanApplication = await _context.LoanApplications.FindAsync(request.Id);
             if(existLoanApplication == null)
             {
                 throw new Exception("Applicaton not found");

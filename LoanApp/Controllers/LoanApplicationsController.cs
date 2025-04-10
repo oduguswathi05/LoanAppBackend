@@ -61,15 +61,24 @@ namespace LoanApp.Controllers
         [Authorize(Roles = "Customer")]
         public async Task<IActionResult> SubmitLoan(SubmitLoanApplicationDto dto)
         {
-            var userIdClaim = User.FindFirst("userId");
-            if (userIdClaim == null)
+            try
             {
-                return Unauthorized("User ID claim is missing.");
-            }
+                var userIdClaim = User.FindFirst("userId");
+                if (userIdClaim == null)
+                {
+                    return Unauthorized("User ID claim is missing.");
+                }
 
-            var userId = int.Parse(userIdClaim.Value);
-            await _mediatR.Send(new SubmitLoanApplicationCommand(dto, userId));
-            return NoContent(); 
+                var userId = int.Parse(userIdClaim.Value);
+
+                var loanId = await _mediatR.Send(new SubmitLoanApplicationCommand(dto, userId));
+
+                return Ok(loanId);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
         }
 
         [HttpGet("UserId")]

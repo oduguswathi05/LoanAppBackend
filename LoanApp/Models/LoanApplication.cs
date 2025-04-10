@@ -15,7 +15,6 @@ namespace LoanApp.Models
         public int LoanTerm { get; set; }
         public string LoanStatus { get; set; } = "Pending";
         public DateTime ApplicationDate { get; set; } = DateTime.Now;
-        public double InterestRate { get; set; }
         public string PropertyAddress { get; set; }
         public double PropertyValue { get; set; }
         [ForeignKey("User")] 

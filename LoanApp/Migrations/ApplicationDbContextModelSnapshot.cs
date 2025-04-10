@@ -43,9 +43,6 @@ namespace LoanApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("InterestRate")
-                        .HasColumnType("float");
-
                     b.Property<double>("LoanAmount")
                         .HasColumnType("float");
 
@@ -78,7 +75,7 @@ namespace LoanApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Loans");
+                    b.ToTable("LoanApplications");
                 });
 
             modelBuilder.Entity("LoanApp.Models.LoanProduct", b =>

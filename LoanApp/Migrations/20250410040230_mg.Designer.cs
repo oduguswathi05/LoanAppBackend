@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoanApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250408102046_mg")]
+    [Migration("20250410040230_mg")]
     partial class mg
     {
         /// <inheritdoc />
@@ -46,9 +46,6 @@ namespace LoanApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("InterestRate")
-                        .HasColumnType("float");
-
                     b.Property<double>("LoanAmount")
                         .HasColumnType("float");
 
@@ -81,7 +78,7 @@ namespace LoanApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Loans");
+                    b.ToTable("LoanApplications");
                 });
 
             modelBuilder.Entity("LoanApp.Models.LoanProduct", b =>

@@ -18,16 +18,16 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
         {
 
             var upLoanApplication = request.dto;
-            //var existingApplication = await _context.Loans.FirstOrDefaultAsync(loan => loan.UserId == request.UserId && loan.LoanStatus == "Pending", cancellationToken);
+            var existingApplication = await _context.LoanApplications.FirstOrDefaultAsync(loan => loan.UserId == request.UserId && loan.LoanStatus == "Pending", cancellationToken);
 
-            //if (existingApplication != null)
-            //{
-            //    throw new Exception("You already have a pending loan application under review.");
-            //}
-
-            if (upLoanApplication.LoanId != null)
+            if (existingApplication != null)
             {
-                var existLoanApplication = await _context.Loans.FindAsync(upLoanApplication.LoanId);
+                throw new Exception("You already have a pending loan application under review.");
+            }
+
+            if (upLoanApplication.Id != null)
+            {
+                var existLoanApplication = await _context.LoanApplications.FindAsync(upLoanApplication.Id);
                
 
                 if (existLoanApplication == null)
@@ -36,7 +36,7 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                 if (existLoanApplication.LoanStatus != "Draft")
                     throw new Exception("Loan already submitted.");
 
-                existLoanApplication.LoanStatus = "Pending";
+                   existLoanApplication.LoanStatus = "Pending";
 
                 if (upLoanApplication.EmploymentStatus != null && upLoanApplication.EmploymentStatus != "")
                 {
@@ -73,11 +73,6 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                     existLoanApplication.LoanTerm = upLoanApplication.LoanTerm.Value;
                 }
 
-                if (upLoanApplication.InterestRate != null)
-                {
-                    existLoanApplication.InterestRate = upLoanApplication.InterestRate.Value;
-                }
-
                 if (upLoanApplication.PropertyValue != null)
                 {
                     existLoanApplication.PropertyValue = upLoanApplication.PropertyValue.Value;
@@ -96,14 +91,13 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                     CreditScore = upLoanApplication.CreditScore.Value,
                     ResidenceType = upLoanApplication.ResidenceType,
                     LoanTerm = upLoanApplication.LoanTerm.Value,
-                    InterestRate = upLoanApplication.InterestRate.Value,
                     PropertyAddress = upLoanApplication.PropertyAddress,
                     PropertyValue = upLoanApplication.PropertyValue.Value,
                     UserId = request.UserId
 
                 };
 
-                await _context.Loans.AddAsync(newLoanApplication, cancellationToken);
+                await _context.LoanApplications.AddAsync(newLoanApplication, cancellationToken);
                 await _context.SaveChangesAsync();
                 return newLoanApplication.Id;
             }

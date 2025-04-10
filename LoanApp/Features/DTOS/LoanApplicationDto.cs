@@ -23,10 +23,6 @@ namespace LoanApp.Features.DTOS
             [Required(ErrorMessage = "Loan term is required")]
             public int LoanTerm { get; set; }
 
-           
-            [Required(ErrorMessage = "Interest rate is required")]
-            public double InterestRate { get; set; }
-
             [Required(ErrorMessage = "Property address is required")]
             public string PropertyAddress { get; set; }
 

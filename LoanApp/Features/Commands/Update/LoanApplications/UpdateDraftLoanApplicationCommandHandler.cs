@@ -15,7 +15,7 @@ namespace LoanApp.Features.Commands.Update.LoanApplication
         public async Task Handle(UpdateDraftLoanApplicationCommand request, CancellationToken cancellationToken)
         {
             var upLoanApplication = request.loanApplication;
-            var existLoanApplication = await _context.Loans.FindAsync(request.id);
+            var existLoanApplication = await _context.LoanApplications.FindAsync(request.id);
             if (existLoanApplication == null)
                 throw new InvalidOperationException("Loan draft not found.");
             if (existLoanApplication.LoanStatus != "Draft")
@@ -55,12 +55,6 @@ namespace LoanApp.Features.Commands.Update.LoanApplication
             {
                 existLoanApplication.LoanTerm = upLoanApplication.LoanTerm.Value;
             }
-
-            if (upLoanApplication.InterestRate != null)
-            {
-                existLoanApplication.InterestRate = upLoanApplication.InterestRate.Value;
-            }
-
             if (upLoanApplication.PropertyValue != null)
             {
                 existLoanApplication.PropertyValue = upLoanApplication.PropertyValue.Value;

@@ -24,14 +24,13 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                 ResidenceType = loanApplication.ResidenceType,
                 LoanTerm = loanApplication.LoanTerm,
                 LoanStatus = "Draft",
-                InterestRate = loanApplication.InterestRate,
                 PropertyAddress = loanApplication.PropertyAddress,
                 PropertyValue = loanApplication.PropertyValue,
                 UserId = request.userId
 
             };
 
-            await _context.Loans.AddAsync(newLoanApplication, cancellationToken);
+            await _context.LoanApplications.AddAsync(newLoanApplication, cancellationToken);
             await _context.SaveChangesAsync();
             return newLoanApplication.Id;
         }

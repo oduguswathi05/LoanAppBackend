@@ -147,19 +147,47 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "decision",
-            "in": "query",
-            "schema": {
-              "$ref": "#/components/schemas/ReviewDecision"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewApplicationDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewApplicationDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewApplicationDto"
+              }
             }
-          },
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/LoanApplications/{id}": {
+      "get": {
+        "tags": [
+          "LoanApplications"
+        ],
+        "parameters": [
           {
-            "name": "comment",
-            "in": "query",
+            "name": "id",
+            "in": "path",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -507,13 +535,19 @@
         },
         "additionalProperties": false
       },
-      "ReviewDecision": {
-        "enum": [
-          0,
-          1
-        ],
-        "type": "integer",
-        "format": "int32"
+      "ReviewApplicationDto": {
+        "type": "object",
+        "properties": {
+          "loanStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "reviewComment": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "SubmitLoanApplicationDto": {
         "type": "object",

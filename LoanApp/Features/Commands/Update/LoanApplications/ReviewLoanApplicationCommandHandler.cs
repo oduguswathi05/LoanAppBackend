@@ -22,12 +22,12 @@ namespace LoanApp.Features.Commands.Update.LoanApplications
             {
                 throw new Exception("Application already reviewed.");
             }
-            //if (request.Decision.ToString() == "Rejected" && request.comment == null && request.comment == "")
+            //if (request.dto.Decision == "Rejected" && request.dto.ReviewComment == null && request.dto.ReviewComment == "")
             //{
             //    throw new Exception("Comment is required when rejecting the application.");
             //}
-            existLoanApplication.LoanStatus = request.Decision.ToString();
-            existLoanApplication.ReviewComment = request.comment;
+            existLoanApplication.LoanStatus = request.dto.LoanStatus;
+            existLoanApplication.ReviewComment = request.dto.ReviewComment;
             existLoanApplication.ReviewedDate = DateTime.Now;
             await _context.SaveChangesAsync(cancellationToken);
         }

@@ -1,6 +1,7 @@
 ﻿using LoanApp.Data;
 using LoanApp.Models;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoanApp.Features.Commands.Create.LoanApplications
 {
@@ -14,6 +15,7 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
         }
         public async Task<int> Handle(CreateLoanApplicationCommand request, CancellationToken cancellationToken)
         {
+           
             var loanApplication = request.LoanApplicationDto;
             var newLoanApplication = new LoanApplication
             {

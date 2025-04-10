@@ -27,17 +27,24 @@ namespace LoanApp.Controllers
         }
 
         [HttpPost("Draft")]
-        [Authorize(Roles ="Customer")]
+        [Authorize(Roles = "Customer")]
         public async Task<IActionResult> Post(LoanApplicationDto loanApplication) {
-            var userIdClaim = User.FindFirst("userId");
-            if (userIdClaim == null)
+            try { 
+                var userIdClaim = User.FindFirst("userId");
+                if (userIdClaim == null)
+                {
+                    return Unauthorized("User ID claim is missing.");
+                }
+
+                var userId = int.Parse(userIdClaim.Value);
+                var LoanApplicationId = await _mediatR.Send(new CreateLoanApplicationCommand(loanApplication, userId));
+                return Ok(LoanApplicationId);
+            }
+            catch (Exception ex)
             {
-                return Unauthorized("User ID claim is missing.");
+                return  BadRequest(ex.Message);
             }
 
-            var userId = int.Parse(userIdClaim.Value);
-            var LoanApplicationId = await _mediatR.Send(new CreateLoanApplicationCommand(loanApplication, userId));
-            return Ok(LoanApplicationId);
         }
 
         [HttpGet]
@@ -77,7 +84,7 @@ namespace LoanApp.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"An error occurred: {ex.Message}");
+                return BadRequest(ex.Message);
             }
         }
 
@@ -98,10 +105,38 @@ namespace LoanApp.Controllers
 
         [HttpPut("Review/{id}")]
         [Authorize(Roles = "LoanOfficer")]
-        public async Task<IActionResult> UpdateLoanStatus(int id,ReviewDecision decision,string? comment)
+        public async Task<IActionResult> UpdateLoanStatus(int id,ReviewApplicationDto dto)
         {
-            await _mediatR.Send(new ReviewLoanApplicationCommand(id,decision, comment));
-            return NoContent();
+            try
+            {
+                await _mediatR.Send(new ReviewLoanApplicationCommand(id, dto));
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
+        }
+
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Customer")]
+        public async Task<IActionResult> GetLoanApplicationsById(int id)
+        {
+            try
+            {
+                var loanApplication = await _mediatR.Send(new GetLoanApplicationsByIdQuery(id));
+                if (loanApplication == null)
+                {
+                    return NotFound();
+                }
+                return Ok(loanApplication);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
         }
 
 

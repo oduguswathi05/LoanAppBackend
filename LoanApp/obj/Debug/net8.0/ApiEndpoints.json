@@ -11,6 +11,22 @@
   },
   {
     "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
+    "Method": "GetLoanApplicationsById",
+    "RelativePath": "api/LoanApplications/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanApplicationsController",
     "Method": "Post",
     "RelativePath": "api/LoanApplications/Draft",
     "HttpMethod": "POST",
@@ -60,14 +76,9 @@
         "IsRequired": true
       },
       {
-        "Name": "decision",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "comment",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "LoanApp.Features.DTOS.ReviewApplicationDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

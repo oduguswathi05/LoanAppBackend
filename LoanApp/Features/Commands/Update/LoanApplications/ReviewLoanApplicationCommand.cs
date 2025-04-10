@@ -4,6 +4,6 @@ using MediatR;
 
 namespace LoanApp.Features.Commands.Update.LoanApplications
 {
-    public record ReviewLoanApplicationCommand(int Id,ReviewDecision Decision,string? comment) :IRequest;
+    public record ReviewLoanApplicationCommand(int Id,ReviewApplicationDto dto) :IRequest;
   
 }

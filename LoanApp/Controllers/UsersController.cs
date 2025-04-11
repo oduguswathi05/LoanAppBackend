@@ -1,5 +1,6 @@
 ﻿using LoanApp.Features.Commands.Create.Users;
 using LoanApp.Features.DTOS;
+using LoanApp.Features.Queries.Get.Users;
 using LoanApp.Features.Queries.List.Users;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -41,6 +42,18 @@ namespace LoanApp.Controllers
             if (UserId == null)
                 return BadRequest("Email is already in use.");
             return Ok(UserId);
+        }
+
+        [HttpGet("{id}")]
+        [Authorize(Roles = "LoanOfficer")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var user = await _meadiatR.Send(new GetUserByIdQuery(id));
+            if(user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
         }
     }
 }

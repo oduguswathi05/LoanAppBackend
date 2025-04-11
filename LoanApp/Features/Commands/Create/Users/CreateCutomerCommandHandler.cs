@@ -33,7 +33,7 @@ namespace LoanApp.Features.Commands.Create.Users
                 LastName = customer.LastName,
                 Email = customer.Email,
                 PasswordHash = hashedPassword,
-                PhoneNumber = customer.PhoneNumber,
+                PhoneNumber = customer.PhoneNumber
             };
            
 

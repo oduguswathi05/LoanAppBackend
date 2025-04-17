@@ -17,6 +17,8 @@ namespace LoanApp.Models
         public DateTime ApplicationDate { get; set; } = DateTime.Now;
         public string PropertyAddress { get; set; }
         public double PropertyValue { get; set; }
+        public double MonthlyDebts { get; set; }
+
         [ForeignKey("User")] 
         public int UserId { get; set; }
 

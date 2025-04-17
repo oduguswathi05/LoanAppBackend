@@ -22,6 +22,10 @@ namespace LoanApp.Features.DTOS
 
         [Required(ErrorMessage = "Maximum Loan Term is required")]
         public int MaxLoanTerm { get; set; }
+        [Required(ErrorMessage = "Minimum Credit Score is required")]
+        public int MinCreditScore { get; set; }
+        [Required(ErrorMessage = "Minimum Annual Income is required")]
+        public double MinAnnualIncome { get; set; }
 
     }
 }

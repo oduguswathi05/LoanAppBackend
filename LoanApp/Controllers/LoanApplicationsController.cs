@@ -28,7 +28,7 @@ namespace LoanApp.Controllers
 
         [HttpPost("Draft")]
         [Authorize(Roles = "Customer")]
-        public async Task<IActionResult> Post(LoanApplicationDto loanApplication) {
+        public async Task<IActionResult> Post(LoanApplicationDraftDto loanApplication) {
             try { 
                 var userIdClaim = User.FindFirst("userId");
                 if (userIdClaim == null)
@@ -37,7 +37,7 @@ namespace LoanApp.Controllers
                 }
 
                 var userId = int.Parse(userIdClaim.Value);
-                var LoanApplicationId = await _mediatR.Send(new CreateLoanApplicationCommand(loanApplication, userId));
+                var LoanApplicationId = await _mediatR.Send(new CreateDraftLoanApplicationCommand(loanApplication, userId));
                 return Ok(LoanApplicationId);
             }
             catch (Exception ex)
@@ -78,9 +78,9 @@ namespace LoanApp.Controllers
 
                 var userId = int.Parse(userIdClaim.Value);
 
-                var loanId = await _mediatR.Send(new SubmitLoanApplicationCommand(dto, userId));
+                var result = await _mediatR.Send(new SubmitLoanApplicationCommand(dto, userId));
 
-                return Ok(loanId);
+                return Ok(result);
             }
             catch (Exception ex)
             {

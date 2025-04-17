@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LoanApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250410040230_mg")]
+    [Migration("20250416043459_mg")]
     partial class mg
     {
         /// <inheritdoc />
@@ -55,6 +55,9 @@ namespace LoanApp.Migrations
 
                     b.Property<int>("LoanTerm")
                         .HasColumnType("int");
+
+                    b.Property<double>("MonthlyDebts")
+                        .HasColumnType("float");
 
                     b.Property<string>("PropertyAddress")
                         .IsRequired()
@@ -99,6 +102,12 @@ namespace LoanApp.Migrations
                         .HasColumnType("float");
 
                     b.Property<int>("MaxLoanTerm")
+                        .HasColumnType("int");
+
+                    b.Property<double>("MinAnnualIncome")
+                        .HasColumnType("float");
+
+                    b.Property<int>("MinCreditScore")
                         .HasColumnType("int");
 
                     b.Property<double>("MinLoanAmount")

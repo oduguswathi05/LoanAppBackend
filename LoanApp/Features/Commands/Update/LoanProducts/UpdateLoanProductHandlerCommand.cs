@@ -15,9 +15,9 @@ namespace LoanApp.Features.Commands.Update.LoanProducts
         {
             var upLoanProduct = request.dto;
             var existLoanProduct = await _context.LoanProducts.FindAsync(request.id, cancellationToken);
-            if (existLoanProduct != null)
+            if (existLoanProduct == null)
             {
-                throw new Exception("Loan Product not exist");
+                throw new Exception($"Loan Product with ID {request.id} not found");
             }
             if(upLoanProduct.ProductName != null && upLoanProduct.ProductName != "")
             {

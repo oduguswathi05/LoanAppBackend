@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LoanApp.Features.DTOS
 {
-        public class LoanApplicationDto
+        public class LoanApplicationDraftDto
         {
             [Required(ErrorMessage = "Loan amount is required")]
             public double LoanAmount { get; set; }
@@ -28,8 +28,12 @@ namespace LoanApp.Features.DTOS
 
             [Required(ErrorMessage = "Property value is required")]
             public double PropertyValue { get; set; }
+            [Required(ErrorMessage = "Monthly Debts is required")]
 
-        }
+            public double MonthlyDebts { get; set; }
+
+
+    }
 }
 
 

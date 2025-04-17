@@ -27,6 +27,7 @@ namespace LoanApp.Migrations
                     ApplicationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PropertyAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PropertyValue = table.Column<double>(type: "float", nullable: false),
+                    MonthlyDebts = table.Column<double>(type: "float", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
                     ReviewComment = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ReviewedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -48,6 +49,8 @@ namespace LoanApp.Migrations
                     MaxLoanAmount = table.Column<double>(type: "float", nullable: false),
                     MinLoanTerm = table.Column<int>(type: "int", nullable: false),
                     MaxLoanTerm = table.Column<int>(type: "int", nullable: false),
+                    MinCreditScore = table.Column<int>(type: "int", nullable: false),
+                    MinAnnualIncome = table.Column<double>(type: "float", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

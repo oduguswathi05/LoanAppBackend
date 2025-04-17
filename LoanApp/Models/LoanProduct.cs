@@ -11,6 +11,8 @@ namespace LoanApp.Models
         public double MaxLoanAmount { get; set; }
         public int MinLoanTerm { get; set; } 
         public int MaxLoanTerm { get; set; }
+        public int MinCreditScore { get; set; }
+        public double MinAnnualIncome { get; set; }
         public bool IsActive { get; set; } = true; 
     }
 

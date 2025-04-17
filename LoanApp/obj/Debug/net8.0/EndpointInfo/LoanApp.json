@@ -14,17 +14,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoanApplicationDto"
+                "$ref": "#/components/schemas/LoanApplicationDraftDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoanApplicationDto"
+                "$ref": "#/components/schemas/LoanApplicationDraftDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoanApplicationDto"
+                "$ref": "#/components/schemas/LoanApplicationDraftDto"
               }
             }
           }
@@ -302,6 +302,18 @@
         }
       }
     },
+    "/api/LoanProducts/Suggest": {
+      "get": {
+        "tags": [
+          "LoanProducts"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/UserAuth/login": {
       "post": {
         "tags": [
@@ -472,13 +484,14 @@
   },
   "components": {
     "schemas": {
-      "LoanApplicationDto": {
+      "LoanApplicationDraftDto": {
         "required": [
           "annualIncome",
           "creditScore",
           "employmentStatus",
           "loanAmount",
           "loanTerm",
+          "monthlyDebts",
           "propertyAddress",
           "propertyValue",
           "residenceType"
@@ -516,6 +529,10 @@
           "propertyValue": {
             "type": "number",
             "format": "double"
+          },
+          "monthlyDebts": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -525,6 +542,8 @@
           "interestRate",
           "maxLoanAmount",
           "maxLoanTerm",
+          "minAnnualIncome",
+          "minCreditScore",
           "minLoanAmount",
           "minLoanTerm",
           "productName"
@@ -554,6 +573,14 @@
           "maxLoanTerm": {
             "type": "integer",
             "format": "int32"
+          },
+          "minCreditScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minAnnualIncome": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -617,6 +644,11 @@
             "format": "double",
             "nullable": true
           },
+          "monthlyDebts": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
           "userId": {
             "type": "integer",
             "format": "int32"
@@ -660,6 +692,11 @@
             "nullable": true
           },
           "propertyValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "monthlyDebts": {
             "type": "number",
             "format": "double",
             "nullable": true

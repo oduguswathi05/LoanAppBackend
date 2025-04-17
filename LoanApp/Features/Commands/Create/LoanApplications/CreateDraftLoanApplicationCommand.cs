@@ -4,6 +4,6 @@ using MediatR;
 
 namespace LoanApp.Features.Commands.Create.LoanApplications
 {
-    public record CreateLoanApplicationCommand(LoanApplicationDto LoanApplicationDto,int userId) : IRequest<int>;
+    public record CreateDraftLoanApplicationCommand(LoanApplicationDraftDto LoanApplicationDto,int userId) : IRequest<int>;
 
 }

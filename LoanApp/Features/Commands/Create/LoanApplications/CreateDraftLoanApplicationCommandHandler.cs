@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LoanApp.Features.Commands.Create.LoanApplications
 {
-    public class CreateLoanApplicationCommandHandler : IRequestHandler<CreateLoanApplicationCommand, int>
+    public class CreateDraftLoanApplicationCommandHandler : IRequestHandler<CreateDraftLoanApplicationCommand, int>
     {
         private readonly ApplicationDbContext _context;
 
-        public CreateLoanApplicationCommandHandler(ApplicationDbContext context)
+        public CreateDraftLoanApplicationCommandHandler(ApplicationDbContext context)
         {
             _context = context;
         }
-        public async Task<int> Handle(CreateLoanApplicationCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateDraftLoanApplicationCommand request, CancellationToken cancellationToken)
         {
            
             var loanApplication = request.LoanApplicationDto;
@@ -28,6 +28,7 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                 LoanStatus = "Draft",
                 PropertyAddress = loanApplication.PropertyAddress,
                 PropertyValue = loanApplication.PropertyValue,
+                MonthlyDebts = loanApplication.MonthlyDebts,
                 UserId = request.userId
 
             };

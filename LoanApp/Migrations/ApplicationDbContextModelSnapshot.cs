@@ -53,6 +53,9 @@ namespace LoanApp.Migrations
                     b.Property<int>("LoanTerm")
                         .HasColumnType("int");
 
+                    b.Property<double>("MonthlyDebts")
+                        .HasColumnType("float");
+
                     b.Property<string>("PropertyAddress")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -96,6 +99,12 @@ namespace LoanApp.Migrations
                         .HasColumnType("float");
 
                     b.Property<int>("MaxLoanTerm")
+                        .HasColumnType("int");
+
+                    b.Property<double>("MinAnnualIncome")
+                        .HasColumnType("float");
+
+                    b.Property<int>("MinCreditScore")
                         .HasColumnType("int");
 
                     b.Property<double>("MinLoanAmount")

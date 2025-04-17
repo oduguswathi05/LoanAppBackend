@@ -33,7 +33,7 @@ namespace LoanApp.Services
                 signingCredentials: credential
                 );
             var jwt =  new JwtSecurityTokenHandler().WriteToken(token);
-            return new LoginResponseDto(jwt, user.Role);
+            return new LoginResponseDto(jwt, user.Role, user.Id);
            
         }
     }

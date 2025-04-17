@@ -59,6 +59,10 @@ namespace LoanApp.Features.Commands.Update.LoanApplication
             {
                 existLoanApplication.PropertyValue = upLoanApplication.PropertyValue.Value;
             }
+            if (upLoanApplication.MonthlyDebts != null)
+            {
+                existLoanApplication.MonthlyDebts = upLoanApplication.MonthlyDebts.Value;
+            }
 
             await _context.SaveChangesAsync(cancellationToken);
 

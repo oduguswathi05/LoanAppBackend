@@ -2,6 +2,7 @@
 using LoanApp.Features.Commands.Delete;
 using LoanApp.Features.Commands.Update.LoanProducts;
 using LoanApp.Features.DTOS;
+using LoanApp.Features.Queries.Get.LoanApplications;
 using LoanApp.Features.Queries.List.LoanProducts;
 using LoanApp.Models;
 using MediatR;
@@ -50,8 +51,50 @@ namespace LoanApp.Controllers
         [Authorize(Roles = "LoanOfficer")]
         public async Task<IActionResult> Update(int id,UpdateLoanProductDto dto)
         {
-            await _mediatR.Send(new UpdateLoanProductCommand(id,dto));
-            return NoContent();
+            try
+            {
+                await _mediatR.Send(new UpdateLoanProductCommand(id, dto));
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = "Something went wrong",
+                    details = ex.Message 
+                });
+
+            }
+
+        }
+
+        [HttpGet("Suggest")]
+        [Authorize]
+        public async Task<IActionResult> SuggestLoanProducts()
+        {
+            try
+            {
+                var userIdClaim = User.FindFirst("userId");
+                if (userIdClaim == null)
+                {
+                    return Unauthorized("User ID claim is missing.");
+                }
+
+                var userId = int.Parse(userIdClaim.Value);
+                var applications = await _mediatR.Send(new GetLoanApplicationsByUserIdQuery(userId));
+                var approvedApplication = applications.FirstOrDefault(app => app.LoanStatus == "Approved");
+                if (approvedApplication == null)
+                {
+                    return NotFound("No approved loan application found for this user.");
+                }
+                var products = await _mediatR.Send(new SuggestLoanProductQuery(approvedApplication));
+                return Ok(products);
+            }
+             catch(Exception ex)
+            {
+                return BadRequest(ex);
+            }
+            
         }
 
 

@@ -22,7 +22,9 @@ namespace LoanApp.Features.Commands.Create.LoanProducts
                 MinLoanAmount = loanProduct.MinLoanAmount,
                 MaxLoanAmount = loanProduct.MaxLoanAmount,
                 MinLoanTerm = loanProduct.MinLoanTerm,
-                MaxLoanTerm = loanProduct.MaxLoanTerm
+                MaxLoanTerm = loanProduct.MaxLoanTerm,
+                MinCreditScore = loanProduct.MinCreditScore,
+                MinAnnualIncome = loanProduct.MinAnnualIncome
 
             };
 

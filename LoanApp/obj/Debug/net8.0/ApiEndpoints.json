@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "loanApplication",
-        "Type": "LoanApp.Features.DTOS.LoanApplicationDto",
+        "Type": "LoanApp.Features.DTOS.LoanApplicationDraftDto",
         "IsRequired": true
       }
     ],
@@ -170,6 +170,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "LoanApp.Controllers.LoanProductsController",
+    "Method": "SuggestLoanProducts",
+    "RelativePath": "api/LoanProducts/Suggest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

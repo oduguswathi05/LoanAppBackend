@@ -174,12 +174,18 @@
   },
   {
     "ContainingType": "LoanApp.Controllers.LoanProductsController",
-    "Method": "SuggestLoanProducts",
-    "RelativePath": "api/LoanProducts/Suggest",
-    "HttpMethod": "GET",
+    "Method": "ProductEligibilityCheck",
+    "RelativePath": "api/LoanProducts/product-Eligibility",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "product",
+        "Type": "LoanApp.Features.DTOS.LoanProductDto",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

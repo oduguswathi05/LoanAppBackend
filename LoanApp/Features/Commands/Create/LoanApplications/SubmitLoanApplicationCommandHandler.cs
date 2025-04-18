@@ -29,7 +29,7 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
             var existingApplication1 = await _context.LoanApplications.FirstOrDefaultAsync(loan => loan.UserId == request.UserId && loan.LoanStatus == "Approved", cancellationToken);
             if (existingApplication1 != null)
             {
-                throw new Exception("You Application already accepted and You can submit only one application");
+                throw new Exception("Your Application already accepted and You can submit only one application");
             }
 
 

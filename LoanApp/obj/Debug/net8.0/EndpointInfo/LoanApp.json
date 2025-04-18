@@ -302,11 +302,30 @@
         }
       }
     },
-    "/api/LoanProducts/Suggest": {
-      "get": {
+    "/api/LoanProducts/product-Eligibility": {
+      "post": {
         "tags": [
           "LoanProducts"
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanProductDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanProductDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanProductDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"

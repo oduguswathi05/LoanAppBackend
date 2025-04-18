@@ -5,6 +5,7 @@ using LoanApp.Features.DTOS;
 using LoanApp.Features.Queries.Get.LoanApplications;
 using LoanApp.Features.Queries.List.LoanProducts;
 using LoanApp.Models;
+using LoanApp.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,7 @@ namespace LoanApp.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "LoanOfficer")]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             var products = await _mediatR.Send(new ListLoanProductsQuery());
@@ -68,35 +69,54 @@ namespace LoanApp.Controllers
 
         }
 
-        [HttpGet("Suggest")]
-        [Authorize]
-        public async Task<IActionResult> SuggestLoanProducts()
+        //[HttpGet("Suggest")]
+        //[Authorize]
+        //public async Task<IActionResult> SuggestLoanProducts()
+        //{
+        //    try
+        //    {
+        //        var userIdClaim = User.FindFirst("userId");
+        //        if (userIdClaim == null)
+        //        {
+        //            return Unauthorized("User ID claim is missing.");
+        //        }
+
+        //        var userId = int.Parse(userIdClaim.Value);
+        //        var applications = await _mediatR.Send(new GetLoanApplicationsByUserIdQuery(userId));
+        //        var approvedApplication = applications.FirstOrDefault(app => app.LoanStatus == "Approved");
+        //        if (approvedApplication == null)
+        //        {
+        //            return NotFound("No approved loan application found for this user.");
+        //        }
+        //        var products = await _mediatR.Send(new SuggestLoanProductQuery(approvedApplication));
+        //        return Ok(products);
+        //    }
+        //     catch(Exception ex)
+        //    {
+        //        return BadRequest(ex);
+        //    }
+
+        //}
+
+        [HttpPost("product-Eligibility")]
+        public async Task<IActionResult> ProductEligibilityCheck(LoanProductDto product)
         {
-            try
+            var userIdClaim = User.FindFirst("userId");
+            if (userIdClaim == null)
             {
-                var userIdClaim = User.FindFirst("userId");
-                if (userIdClaim == null)
-                {
-                    return Unauthorized("User ID claim is missing.");
-                }
+                return Unauthorized("User ID claim is missing.");
+            }
+            var userId = int.Parse(userIdClaim.Value);
 
-                var userId = int.Parse(userIdClaim.Value);
-                var applications = await _mediatR.Send(new GetLoanApplicationsByUserIdQuery(userId));
-                var approvedApplication = applications.FirstOrDefault(app => app.LoanStatus == "Approved");
-                if (approvedApplication == null)
-                {
-                    return NotFound("No approved loan application found for this user.");
-                }
-                var products = await _mediatR.Send(new SuggestLoanProductQuery(approvedApplication));
-                return Ok(products);
-            }
-             catch(Exception ex)
-            {
-                return BadRequest(ex);
-            }
+            var applications = await _mediatR.Send(new GetLoanApplicationsByUserIdQuery(userId));
+            var application = applications.FirstOrDefault(app => app.LoanStatus == "Approved");
+
+            var evaluator = new ProductEligibilityCheckService();
+           
+            var evaluations = evaluator.Evaluate(application, product);
             
+            return Ok(evaluations);
         }
-
 
     }
 }

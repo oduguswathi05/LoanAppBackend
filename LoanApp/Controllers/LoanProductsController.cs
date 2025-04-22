@@ -44,8 +44,16 @@ namespace LoanApp.Controllers
         [Authorize(Roles = "LoanOfficer")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _mediatR.Send(new DeleteLoanProductCommand(id));
-            return NoContent();
+            try
+            {
+                await _mediatR.Send(new DeleteLoanProductCommand(id));
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
         }
 
         [HttpPut("{id}")]

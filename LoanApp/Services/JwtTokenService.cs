@@ -22,6 +22,7 @@ namespace LoanApp.Services
                 new Claim(ClaimTypes.Name,user.Email),
                 new Claim(ClaimTypes.Role,user.Role),
                 new Claim("userId", user.Id.ToString())
+                
            };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var credential = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

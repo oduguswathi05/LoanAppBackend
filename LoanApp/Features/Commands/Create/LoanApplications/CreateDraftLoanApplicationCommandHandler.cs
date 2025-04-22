@@ -15,7 +15,12 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
         }
         public async Task<int> Handle(CreateDraftLoanApplicationCommand request, CancellationToken cancellationToken)
         {
-           
+            var existingApplication = await _context.LoanApplications.FirstOrDefaultAsync(loan => loan.UserId == request.userId && loan.LoanStatus == "Approved", cancellationToken);
+            if (existingApplication != null)
+            {
+                throw new Exception("Your Application already accepted and You can submit only one application");
+            }
+
             var loanApplication = request.LoanApplicationDto;
             var newLoanApplication = new LoanApplication
             {

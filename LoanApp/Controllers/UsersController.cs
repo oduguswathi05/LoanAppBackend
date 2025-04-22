@@ -18,6 +18,7 @@ namespace LoanApp.Controllers
         {
             _meadiatR = mediatR;
         }
+
         [HttpGet]
         [Authorize(Roles = "LoanOfficer")]
         public async Task<IActionResult> Get()

@@ -18,7 +18,7 @@ namespace LoanApp.Features.Commands.Delete
             {
                 throw new Exception("Product not found");
             }
-
+             
             loanProduct.IsActive = false;
             await _context.SaveChangesAsync();
         }

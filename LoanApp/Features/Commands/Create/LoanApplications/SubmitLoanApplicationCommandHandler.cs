@@ -19,6 +19,7 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
         {
 
             var upLoanApplication = request.dto;
+            
             var existingApplication = await _context.LoanApplications.FirstOrDefaultAsync(loan => loan.UserId == request.UserId && loan.LoanStatus == "Pending", cancellationToken);
 
             if (existingApplication != null)
@@ -141,6 +142,8 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                 return new LoanApplicationResultDto(newLoanApplication.Id, newLoanApplication.LoanStatus);
 
             }
+
+
         }
     }
 }

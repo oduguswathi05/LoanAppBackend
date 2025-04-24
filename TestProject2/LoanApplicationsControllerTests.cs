@@ -28,67 +28,48 @@ namespace TestProject2
         public LoanApplicationsControllerTests() { 
            _mediatorMock = new Mock<IMediator>();
             _controller = new LoanApplicationsController( _mediatorMock.Object );
+            var userClaims = new List<Claim>
+                                            {
+                                                new Claim("userId", "1"),
+                                                new Claim(ClaimTypes.Role, "Customer")
+                                            };
+            var identity = new ClaimsIdentity(userClaims, "TestAuth");
+            var userPrincipal = new ClaimsPrincipal(identity);
+
+            _controller.ControllerContext = new ControllerContext()
+            {
+                HttpContext = new DefaultHttpContext { User = userPrincipal }
+            };
         }
         [Fact]
-        public async Task ShouldReturnOkWhenLoanApplicationDraftAddedSuccessfully()
+        public async Task PostShouldReturnOkWithId()
         {
-            var loanApplication = new LoanApplicationDraftDto
-            {
-                LoanAmount = 250000,
-                AnnualIncome = 85000,
-                EmploymentStatus = "Employed",
-                CreditScore = 720,
-                ResidenceType = "Owner-occupied",
-                LoanTerm = 30,
-                PropertyAddress = "123 Main St, Anytown, USA",
-                PropertyValue = 300000,
-                MonthlyDebts = 500
-            };
-
-            var userId = 1;
-            var userClaims = new List<Claim>{ new Claim("userId", userId.ToString()) };
-            var identity = new ClaimsIdentity(userClaims, "TestAuthType");
-            var claimsPrincipal = new ClaimsPrincipal(identity);
-
-            _controller.ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext { User = claimsPrincipal }
-            };
+            var loanApplication = GetValidDraftDto();
 
             _mediatorMock.Setup(m=>m.Send(It.IsAny<CreateDraftLoanApplicationCommand>(),default)).ReturnsAsync(1);
             var result = await _controller.Post(loanApplication);
             result.Should().BeOfType<OkObjectResult>().Which.Value.Should().Be(1);
         }
         [Fact]
+        public async Task PostMissingUserIdClaimReturnsUnauthorized()
+        {
+            _controller.ControllerContext.HttpContext.User = new ClaimsPrincipal();
+            var draftDto = GetValidDraftDto();
+
+            var result = await _controller.Post(draftDto);
+
+            result.Should().BeOfType<UnauthorizedObjectResult>().Which.Value.Should().Be("User ID claim is missing.");
+        }
+        [Fact]
         public async Task ShouldReturnBadRequestWhenExceptionthrown()
         {
-            var loanApplication = new LoanApplicationDraftDto
-            {
-                LoanAmount = 250000,
-                AnnualIncome = 85000,
-                EmploymentStatus = "Employed",
-                CreditScore = 720,
-                ResidenceType = "Owner-occupied",
-                LoanTerm = 30,
-                PropertyAddress = "123 Main St, Anytown, USA",
-                PropertyValue = 300000,
-                MonthlyDebts = 500
-            };
+            var loanApplication = GetValidDraftDto();
 
-            var userId = 1;
-            var userClaims = new List<Claim> { new Claim("userId", userId.ToString()) };
-            var identity = new ClaimsIdentity(userClaims, "TestAuthType");
-            var claimsPrincipal = new ClaimsPrincipal(identity);
-
-            _controller.ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext { User = claimsPrincipal }
-            };
-
-            _mediatorMock.Setup(m => m.Send(It.IsAny<CreateDraftLoanApplicationCommand>(), default)).ThrowsAsync(new Exception("Your Application already accepted and You can submit only one application"));
+            _mediatorMock.Setup(m => m.Send(It.IsAny<CreateDraftLoanApplicationCommand>(), default)).ThrowsAsync(new Exception("Database error"));
             var result = await _controller.Post(loanApplication);
-            result.Should().BeOfType<BadRequestObjectResult>().Which.Value.Should().Be("Your Application already accepted and You can submit only one application");
+            result.Should().BeOfType<BadRequestObjectResult>().Which.Value.Should().Be("Database error");
         }
+
         [Fact]
         public async Task GetLoanApplicationsTest()
         {
@@ -124,15 +105,6 @@ namespace TestProject2
         [Fact]
         public async Task ShouldCreateLoanApplicationAndReturnApproved()
         {
-            var userId = 1;
-            var userClaims = new List<Claim> { new Claim("userId", userId.ToString()) };
-            var identity = new ClaimsIdentity(userClaims, "TestAuthType");
-            var claimsPrincipal = new ClaimsPrincipal(identity);
-
-            _controller.ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext { User = claimsPrincipal }
-            };
 
             var dto = new SubmitLoanApplicationDto(
                     Id: null,
@@ -156,16 +128,6 @@ namespace TestProject2
        [Fact]
        public async Task GetLoanApplicationsByUserIdTest()
         {
-            var userId = 1;
-            var userClaims = new List<Claim> { new Claim("userId", userId.ToString()) };
-            var identity = new ClaimsIdentity(userClaims, "TestAuthType");
-            var claimsPrincipal = new ClaimsPrincipal(identity);
-
-            _controller.ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext { User = claimsPrincipal }
-            };
-
             var loanApplications = new List<LoanApplication>
                                 {
                                     new LoanApplication { Id = 1, UserId = 1, LoanAmount = 100000 },
@@ -200,6 +162,22 @@ namespace TestProject2
           
             result.Should().BeOfType<NoContentResult>();
 
+        }
+
+        private LoanApplicationDraftDto GetValidDraftDto()
+        {
+           return new LoanApplicationDraftDto
+                    {
+                        LoanAmount = 100000,
+                        AnnualIncome = 75000,
+                        EmploymentStatus = "Employed",
+                        CreditScore = 720,
+                        ResidenceType = "Owned",
+                        LoanTerm = 15,
+                        PropertyAddress = "123 Main St",
+                        PropertyValue = 150000,
+                        MonthlyDebts = 500
+                    };
         }
 
     }

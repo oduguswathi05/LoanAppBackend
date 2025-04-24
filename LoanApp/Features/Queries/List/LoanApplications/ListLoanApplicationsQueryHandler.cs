@@ -36,8 +36,6 @@ namespace LoanApp.Features.Queries.List.LoanApplications
                 UserId = app.UserId
             }).ToList();
 
-
-
             return result;
         }
     }

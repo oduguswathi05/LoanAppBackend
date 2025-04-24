@@ -156,3 +156,13 @@ C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\obj\Debug\net8.0\refint\
 C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\obj\Debug\net8.0\TestProject2.pdb
 C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\obj\Debug\net8.0\TestProject2.genruntimeconfig.cache
 C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\obj\Debug\net8.0\ref\TestProject2.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\swathi.odugu\source\repos\LoanApp\TestProject2\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

@@ -33,12 +33,12 @@ namespace LoanApp.Features.Commands.Create.LoanApplications
                 throw new Exception("Your Application already accepted and You can submit only one application");
             }
 
+           
 
             if (upLoanApplication.Id != null)
             {
-                var existLoanApplication = await _context.LoanApplications.FindAsync(upLoanApplication.Id);
-               
 
+                var existLoanApplication = await _context.LoanApplications.FindAsync(upLoanApplication.Id);
                 if (existLoanApplication == null)
                     throw new Exception("Loan draft not found.");
 

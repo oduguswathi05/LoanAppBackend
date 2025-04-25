@@ -22,10 +22,12 @@ namespace LoanApp.Features.Commands.Update.LoanApplications
             {
                 throw new Exception("Application already reviewed.");
             }
-            //if (request.dto.Decision == "Rejected" && request.dto.ReviewComment == null && request.dto.ReviewComment == "")
+
+            //if (request.dto.Decision == "Rejected" && string.IsNullOrWhiteSpace(request.dto.ReviewComment))
             //{
             //    throw new Exception("Comment is required when rejecting the application.");
             //}
+
             existLoanApplication.LoanStatus = request.dto.LoanStatus;
             existLoanApplication.ReviewComment = request.dto.ReviewComment;
             existLoanApplication.ReviewedDate = DateTime.Now;

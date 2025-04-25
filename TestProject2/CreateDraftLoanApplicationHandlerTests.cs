@@ -54,7 +54,7 @@ namespace TestProject2
 
             var command = new CreateDraftLoanApplicationCommand(GetValidDraftDto(), userId: 1);
 
-            Func<Task> act = () => _handler.Handle(command, CancellationToken.None);
+           var act = async () => await _handler.Handle(command, CancellationToken.None);
 
             await act.Should().ThrowAsync<Exception>().WithMessage("Your Application already accepted and You can submit only one application");
         }

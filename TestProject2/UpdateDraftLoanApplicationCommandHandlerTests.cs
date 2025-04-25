@@ -193,7 +193,7 @@ namespace TestProject2
 
             var command = new UpdateDraftLoanApplicationCommand(999, updatedDto); 
 
-            Func<Task> act = () => _handler.Handle(command, CancellationToken.None);
+            var act = () => _handler.Handle(command, CancellationToken.None);
 
             await act.Should().ThrowAsync<InvalidOperationException>().WithMessage("Loan draft not found.");
         }
@@ -233,13 +233,9 @@ namespace TestProject2
 
             var command = new UpdateDraftLoanApplicationCommand(submittedApplication.Id, updatedDto);
 
-            Func<Task> act = () => _handler.Handle(command, CancellationToken.None);
+           var act = () => _handler.Handle(command, CancellationToken.None);
 
             await act.Should().ThrowAsync<InvalidOperationException>().WithMessage("Loan already submitted.");
         }
-
-
-
-
-    }
+     }
 }
